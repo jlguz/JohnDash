@@ -4,7 +4,15 @@ from . forms import TaskForm
 
 # Create your views here.
 
-def index(request):
+## views for home ##
+
+def home(request):
+    return render(request, 'main/dashboard.html')
+
+
+### views for todo app ###
+
+def crateTask(request):
     tasks = Task.objects.all()
     form = TaskForm()
 
@@ -12,7 +20,7 @@ def index(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/')    
+        return redirect('list')    
 
     context = {'tasks': tasks, 'form':form}
 
@@ -26,7 +34,7 @@ def updateTask(request,pk):
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('list')
 
     context = {'form':form}
     return render(request, 'todo/update_task.html',context)    
@@ -36,7 +44,7 @@ def deleteTask(request, pk):
 
     if request.method == 'POST':
         item.delete()
-        return redirect('/')
+        return redirect('list')
 
     context = {'item': item}
     return render(request, 'todo/delete.html',context)  
