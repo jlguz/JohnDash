@@ -1,0 +1,226 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Dash</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" href="{% static '/css/todo.css' %}">
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark  nav">
+            <div class="container-fluid contfluid">
+
+                <!-- offcanvas trigger -->
+                <button class="d-block mx-2 btn btn-outline-dark button_trigger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span>
+            </button>
+                <!-- offcanvas trigger -->
+
+                <a class="navbar-brand fw-bold me-auto" href="{% url 'home' %}">John Guzman</a>
+
+                <!--toggle buttom for mobile nav-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <!--toggle buttom for mobile nav-->
+
+
+                <!--navbar links-->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link disabled">Disabled</a>
+                        </div>
+
+                        <!--   <form class="d-flex ms-auto">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                                <button class="btn btn-secondary" type="button" id="button-addon2">
+                                <i class="bi bi-search"></i>
+                            </button>
+                            </div>
+                        </form>
+                        -->
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-fill"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Log in</a></li>
+                                    <li><a class="dropdown-item" href="#">Log out</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--navbar links-->
+                </div>
+            </div>
+        </nav>
+        <!--navbar-->
+    </header>
+    <!-- navbar -->
+
+    <!-- offcanvas -->
+
+    <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white  canvas" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">John Dash</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body p-0">
+            <nav class="navbar-dark">
+                <ul class="navbar-nav">
+                    <li>
+                        <div class="text-muted small fw-bold text-uppercase px-3">
+                            Media
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://hotmail.com" target="iframe1" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-envelope"></i></span>
+                            <span>Mail</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.bing.com" target="iframe1" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-search"></i></i></span>
+                            <span>Search</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-music-player"></i></span>
+                            <span>Music</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.google.com/intl/en_uk/photos/about/" target="iframe1" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-images"></i></span>
+                            <span>Pics</span>
+                        </a>
+                    </li>
+                    <li class="my-4">
+                        <hr class="dropdown-divider ">
+                    </li>
+
+                    <li>
+                        <div class="text-muted small fw-bold text-uppercase px-3">
+                            apps
+                        </div>
+                    </li>
+                    <li>
+                        <a href="{% url 'list' %}" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-check2-square"></i></span>
+                            <span>To do</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-browser-chrome"></i></span>
+                            <span>webscraping</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-joystick"></i></span>
+                            <span>Game</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-3 active">
+                            <span class="me-2"><i class="bi bi-database"></i></span>
+                            <span>Api</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                            <span>layout</span>
+                            <span><i class="bi bi-chevron-down"></i></span>
+                        </a>
+
+                        <div class="collapse" id="collapseExample">
+                            <div>
+                                <ul class="navbar-nav ps-3">
+                                    <a href="" class="nav-link px-3">
+                                        <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                                        <span>nested link</span>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <!-- offcanvas end -->
+
+
+    <!-- main -->
+    <div class="content">
+        <main>
+            {% block content %} {% endblock %}
+
+        </main>
+
+        <aside class="side_navbar">
+
+            <a class="icon1" href="{% url 'list' %}">
+                <i class="bi bi-person-circle icon"></i>
+            </a>
+            <a class="icon1" href="/html/dashboard.html" target="iframe1">
+                <i class="bi bi-house-door icon"></i>
+            </a>
+            <a class="icon1" href="/html/sidebar.html" target="iframe1">
+                <i class="bi bi-layout-text-sidebar-reverse icon"></i>
+            </a>
+            <a class="icon1" href="/html/webscraping.html" target="iframe1">
+                <i class="bi bi-gear icon"></i>
+            </a>
+
+            <a class="icon1" href="#">
+                <i class="bi bi-box-arrow-right icon"></i>
+            </a>
+
+        </aside>
+    </div>
+    <!-- main -->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
